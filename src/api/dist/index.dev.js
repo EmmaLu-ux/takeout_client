@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.reqShops = exports.reqFoodTypes = exports.reqAddress = void 0;
+exports.reqShops = exports.reqFoodCategorys = exports.reqAddress = void 0;
 
 var _ajax = _interopRequireDefault(require("./ajax"));
 
@@ -18,12 +18,12 @@ var reqAddress = function reqAddress(geohash) {
 
 exports.reqAddress = reqAddress;
 
-var reqFoodTypes = function reqFoodTypes() {
+var reqFoodCategorys = function reqFoodCategorys() {
   return (0, _ajax["default"])('/index_category');
 }; // 根据经纬度获取商铺列表
 
 
-exports.reqFoodTypes = reqFoodTypes;
+exports.reqFoodCategorys = reqFoodCategorys;
 
 var reqShops = function reqShops(longitude, latitude) {
   return (0, _ajax["default"])('/shops', {

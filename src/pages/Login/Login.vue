@@ -4,13 +4,14 @@
       <div class="login_header">
         <h2 class="login_logo">饿了么</h2>
         <div class="login_header_title">
-          <a href="javascript:;" class="on">短信登录</a>
-          <a href="javascript:;">密码登录</a>
+          <a href="javascript:;" :class="{on: loginWay}" @click="loginWay=true">短信登录</a>
+          <a href="javascript:;" :class="{on: !loginWay}" @click="loginWay=false">密码登录</a>
         </div>
       </div>
       <div class="login_content">
         <form>
-          <div class="on">
+        <!-- 短信登录 -->
+          <div :class="{on: loginWay}">
             <section class="login_message">
               <input type="tel" maxlength="11" placeholder="手机号" />
               <button disabled="disabled" class="get_verification">
@@ -21,11 +22,12 @@
               <input type="tel" maxlength="8" placeholder="验证码" />
             </section>
             <section class="login_hint">
-              温馨提示：未注册硅谷外卖帐号的手机号，登录时将自动注册，且代表已同意
+              温馨提示：未注册饿了么外卖帐号的手机号，登录时将自动注册，且代表已同意
               <a href="javascript:;">《用户服务协议》</a>
             </section>
           </div>
-          <div>
+          <!-- 密码登录 -->
+          <div :class="{on: !loginWay}">
             <section>
               <section class="login_message">
                 <input
@@ -65,6 +67,11 @@
 <script>
 export default {
   name: "Login-Comp",
+  data() {
+    return {
+      loginWay: true //true代表短信登录，false代表密码登录
+    }
+  },
 };
 </script>
 

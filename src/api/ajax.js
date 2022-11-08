@@ -15,12 +15,12 @@ export default function ajax(url, data = {}, type = 'GET') {
                 dataStr = dataStr.substring(0, dataStr.lastIndexOf('&'))
                 url = url + '?' + dataStr
             }
-            axios.get(url)
+            promise = axios.get(url)
         } else {
             // 发送post 请求
             promise = axios.post(url, data)
         }
-        promise.then(resolve => {
+        promise.then(response => {
             resolve(response.data)
         })
             .catch(error => {
