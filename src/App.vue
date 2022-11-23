@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="app">
     <router-view></router-view>
     <FooterGuide v-show="$route.meta.showFooter"/>
   </div>
@@ -16,12 +16,14 @@ export default {
   mounted() {
     // this.$store.dispatch('getAddress')
     this.getAddress()
+    this.getUserInfo()
   },
   methods: {
-    ...mapActions(['getAddress'])
+    ...mapActions(['getAddress', 'getUserInfo'])
   },
 };
 </script>
 
 <style lang="stylus">
+
 </style>

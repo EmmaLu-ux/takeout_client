@@ -1,6 +1,6 @@
 <template>
   <div class="shop_container">
-    <ul class="shop_list" v-if="shops.length">
+    <ul class="shop_list" v-if="shops.length" @click="$router.push('/shop')">
       <li
         class="shop_li border-1px"
         v-for="(shop, index) in shops"
